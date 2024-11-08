@@ -1,0 +1,197 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css", rel="stylesheet")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rubik:wght@400;500;600;700&display=swap", rel="stylesheet")
+    title Page with Header, Quote, and Ad Section
+    link(rel="stylesheet", href="./assests/css/style.css")
+  
+  body
+    // Header Section
+    #header
+      header
+        .logo
+          img(src="./assests/img/paging/Finman-Logo-1.png", alt="logo", width="100px", height="50px")
+        nav
+          a(href="/user", class="button") Home
+          a(href="/traceexpense", class="button") Trace Expense
+          a(href="/userdashboard", class="button") DashBoard
+          a(href="/login", class="menu button", id="menu", onclick="logout()") Logout
+    
+    main
+      // Advertisement Section
+      section.advertisement
+        .ad-container
+          .ad.ad1
+            img(src="./assests/img/paging/a3.webp", alt="", width="100%", height="400px")
+          .ad.ad2
+            img(src="./assests/img/paging/a2.jpg", alt="", width="100%", height="400px")
+          .ad.ad3
+            img(src="./assests/img/paging/a1.jpg", alt="", width="100%", height="400px")
+          .ad.ad3
+            img(src="./assests/img/paging/a4.jpg", alt="", width="100%", height="400px")
+          .ad.ad3
+            img(src="./assests/img/paging/a6.png", alt="", width="100%", height="400px")
+          .ad.ad3
+            img(src="./assests/img/paging/a7.jpg", alt="", width="100%", height="400px")
+    
+      // Quote Section
+      section.section-hero
+        .hero
+          .hero-text-box
+            h1.heading-primary Happy family needs, best plan to survie
+            p.hero-description
+              | Do not save what is left after spending,
+              br
+              | instead spend what is left after saving :)
+            h4 Finance management is the process of planning, organizing, directing, and controlling 
+              the financial activities of an organization or individual. 
+              It involves managing financial resources to achieve specific goals, ensuring effective allocation, 
+              and optimizing financial performance.
+            a.btn.btn--full.margin-right-sm(href="/traceexpense") Generate Plan
+            a.btn.btn--outline(href="#how") Learn more &darr;
+            .delivered-meals
+              .delivered-imgs
+                img(src="./assests/img/customers/customer-1.jpg", alt="Customer photo")
+                img(src="./assests/img/customers/customer-2.jpg", alt="Customer photo")
+                img(src="./assests/img/customers/customer-3.jpg", alt="Customer photo")
+                img(src="./assests/img/customers/customer-4.jpg", alt="Customer photo")
+                img(src="./assests/img/customers/customer-5.jpg", alt="Customer photo")
+                img(src="./assests/img/customers/customer-6.jpg", alt="Customer photo")
+              p.delivered-text
+                span 250,000+ 
+                | users last year!
+          .hero-img-box
+            img(src="./assests/img/paging/desktop.jpg", class="hero-img", alt="image")
+      
+      section.section-featured
+        .container
+          h2.heading-featured-in As featured in
+          .logos
+            img(src="./assests/img/logos/techcrunch.png", alt="Techcrunch logo")
+            img(src="./assests/img/logos/business-insider.png", alt="Business Insider logo")
+            img(src="./assests/img/logos/the-new-york-times.png", alt="The New York Times logo")
+            img(src="./assests/img/logos/forbes.png", alt="Forbes logo")
+            img(src="./assests/img/logos/usa-today.png", alt="USA Today logo")
+    
+      section#how
+        .how-container
+          span.subheading(style="font-weight: bold;") How it Works
+          h2.heading-secondary Your family finance Sustainability in 3 simple steps
+        .section-how
+          .step-1-des
+            p.step-number 01
+            h3.heading-tertiary Enter Income and Expenses
+            p.step-description
+              | Enter your monthly income and categorize your expenses (e.g., groceries, rent, utilities, entertainment).
+              br
+              | Don't ever waste your time on Family Savings because The way we spend our time defines who we are!
+          .step-1-image
+            img(src="./assests/img/steps/s-1.png", alt="image step 1")
+        
+        .section-how
+          .step-1-image
+            img(src="./assests/img/steps/s-2.png", alt="image step 2", width="500px", height="500px")
+          p.step-number 02
+          h3.heading-tertiary Set Savings Goals
+          p.step-description
+            | Define your savings goals, whether for emergencies, vacations, or long-term investments and Education.
+        
+        .section-how
+          .step-1-des
+            p.step-number 03
+            h3.heading-tertiary Review Budget Plan
+            p.step-description
+              | Based on the input, the website generates a customized budget plan with suggested spending limits and saving amounts.
+              br
+              | You can review the breakdown and adjust as necessary.
+          .step-1-image
+            img(src="./assests/img/steps/s-3.png", alt="image step 3", width="500px", height="500px")
+    
+      // Feedback Section
+      section#user-feedback
+        h2 What Our Users Say
+        .feedback-container
+          .feedback-card
+            img(src="./assests/img/customers/customer-4.jpg", alt="User Profile", class="feedback-profile")
+            blockquote "This budget planner has changed how I manage my finances. It's simple, yet powerful!"
+            p.feedback-user-name - Sarah Johnson
+          .feedback-card
+            img(src="./assests/img/customers/customer-5.jpg", alt="User Profile", class="feedback-profile")
+            blockquote "I love the savings goals feature. It has helped me save consistently every month!"
+            p.feedback-user-name - Michael Lee
+          .feedback-card
+            img(src="./assests/img/customers/customer-6.jpg", alt="User Profile", class="feedback-profile")
+            blockquote "The expense tracking feature made it easy to visualize where my money goes. Highly recommend it!"
+            p.feedback-user-name - Emily Davis
+    
+    // Footer Section
+    #footer
+      footer.footer
+        .container.grid.grid--footer
+          .logo-col
+            a.footer-logo(href="#")
+              img.logo(src="./assests/img/paging/Finman-Logo-1.png", alt="logo")
+            ul.social-links
+              li
+                a(href="#", style="text-decoration: none")
+                  i.bx.bxl-facebook
+              li
+                a(href="#", style="text-decoration: none")
+                  i.bx.bxl-linkedin
+              li
+                a(href="#", style="text-decoration: none")
+                  i.bx.bxl-twitter
+              li
+                a(href="#", style="text-decoration: none")
+                  i.bx.bxl-instagram
+            p.copy-right Copyright &copy;
+              span.year 2027
+              | by Omnifood, Inc. All rights reserved.
+          .address-col
+            p.footer-heading Contact us
+            address.contacts
+              p.address 623 Harrison St., 2nd Floor, San Francisco, CA 94107
+              p
+                a.footer-link(href="tel:415-201-6370") 415-201-6370
+                br
+                a.footer-link(href="mailto:hello@website.com") info@website.com
+          nav.nav-col
+            p.footer-heading Account
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Create account
+              li
+                a.footer-link(href="#") Sign in
+              li
+                a.footer-link(href="#") iOS app
+              li
+                a.footer-link(href="#") Android app
+          nav.nav-col
+            p.footer-heading Company
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Finman
+              li
+                a.footer-link(href="#") For Business
+              li
+                a.footer-link(href="#") Service
+              li
+                a.footer-link(href="#") Financial Sustainability
+          nav.nav-col
+            p.footer-heading Resources
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Recipe directory
+              li
+                a.footer-link(href="#") Help center
+              li
+                a.footer-link(href="#") Privacy & terms
+    script
+      | function logout() {
+      |     window.location.href = '/logout';
+      | }

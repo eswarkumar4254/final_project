@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="assests/css/style.css")
+  body
+    #header
+
+    #signup-body
+      form#signupForm(action="/signup", method="post", onsubmit="return validateForm()")
+        fieldset#signup-fieldset
+          h1#signup Sign Up
+
+          label(for="name") Name:
+          input(type="text", id="name", name="name", placeholder="name", required)
+          span.error(id="nameError")
+
+          label(for="email") Email:
+          input(type="email", id="email", name="email", placeholder="email", required)
+          span.error(id="emailError")
+
+          label(for="password") Password:
+          input(type="password", id="password", name="password", placeholder="password", required)
+          span.error(id="passwordError")
+
+          label(for="confirmPassword") Confirm Password:
+          input(type="password", id="confirmPassword", name="confirmPassword", placeholder="Confirm Password", required)
+          span.error(id="confirmPasswordError")
+
+          label(for="income") Income:
+          input(type="number", id="income", name="income", required)
+          span.error(id="incomeError")
+
+          label(for="age") Age:
+          input(type="number", id="age", name="age", required)
+          span.error(id="ageError")
+
+          label(for="phonenumber") Phone Number:
+          input(type="number", id="phonenumber", name="phonenumber", required)
+          span.error(id="phoneError")
+
+          label(for="occupation") Occupation:
+          input(type="text", id="occupation", name="occupation", required)
+          span.error(id="occupationError")
+
+          .buttons
+            button(type="submit") SignUp
+
+    #footer
+    script(src="assests/js/Script.js")

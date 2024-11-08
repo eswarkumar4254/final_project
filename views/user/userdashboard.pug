@@ -1,0 +1,174 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./assests/css/style.css")
+  body
+    // User Dashboard Header
+    div#header
+      header
+        div.logo
+          img(src="/assests/img/paging/Finman-Logo-1.png", alt="logo", width="100px", height="50px")
+        nav
+          a(href="/user", class="button") Home
+          a(href="/traceexpense", class="button") Trace Expense
+          a(href="/userdashboard", class="button") DashBoard
+          a(href="/login", class="menu button", id="menu") Logout
+
+    // Main User Info Section
+    div.con
+      h1 Welcome back, {{user.name}}!
+      img(src="./assests/img/profile.png", width="1000px", height="11000px", alt="Profile Image", class="profile-image")
+
+      // User Details in Cards
+      div.user-details
+        div.card
+          h2.user_details Name
+          p {{user.name}}
+        div.card
+          h2.user_details Email
+          p {{user.email}}
+        div.card
+          h2.user_details Income
+          p {{user.income}}
+        div.card
+          h2.user_details Age
+          p {{user.age}}
+        div.card
+          h2.user_details Phone Number
+          p {{user.phonenumber}}
+        div.card
+          h2.user_details Occupation
+          p {{user.occupation}}
+
+    // Budget Summary Section
+    div.card
+      h2.toggle-header Budget Summary
+      p.toggle-content The Personal Budget Planning project helps users manage their finances by allowing them to input their monthly income and expenses to generate three customized budget plans: Least Savings, Default Savings, and Best Savings. Users can track and compare their actual expenses with budgeted amounts and adjust savings for categories like housing, food, utilities, transportation, etc. The project also includes features such as an error-handling page for displaying appropriate messages when errors occur (like 404). The overall design uses a user-friendly interface with dynamic elements for ease of navigation and functionality.
+
+    div.card
+      h2.toggle-header Fixed Metrics
+      p.toggle-content Your fixed metrics include essential categories such as Housing, Utilities, and Savings. You can adjust these categories for more personalized plans.
+
+    div.card
+      h2.toggle-header How to Plan Your Budget
+      p.toggle-content Planning your budget is crucial for financial stability. Focus on setting a savings goal, tracking your expenses, and adjusting your discretionary spending based on income flow.
+
+    div.card
+      h2.toggle-faq-header Frequently Asked Questions
+      div.faq-section(style="display:none;")
+        div.faq-item
+          h3.toggle-question How do I create a budget?
+          p.toggle-answer You can create a budget by listing your income and expenses, setting priorities, and allocating funds to each category.
+        div.faq-item
+          h3.toggle-question What are fixed and variable expenses?
+          p.toggle-answer Fixed expenses are consistent each month (e.g., rent), while variable expenses can change (e.g., groceries, entertainment).
+        div.faq-item
+          h3.toggle-question How much should I save?
+          p.toggle-answer A common recommendation is to save at least 20% of your income. However, the amount can vary based on your financial goals.
+
+    // Footer Section
+    div#footer
+      footer.footer
+        div.container.grid.grid--footer
+          div.logo-col
+            a.footer-logo(href="#")
+              img.logo(src="./assests/img/paging/Finman-Logo-1.png", alt="logo")
+            ul.social-links
+              li
+                a(href="#" style="text-decoration: none")
+                  i.bx.bxl-facebook
+              li
+                a(href="#" style="text-decoration: none")
+                  i.bx.bxl-linkedin
+              li
+                a(href="#" style="text-decoration: none")
+                  i.bx.bxl-twitter
+              li
+                a(href="#" style="text-decoration: none")
+                  i.bx.bxl-instagram
+            p.copy-right Copyright &copy; <span.year>2027</span> by Omnifood,Inc.All rights reserved.
+          div.address-col
+            p.footer-heading Contact us
+            address.contacts
+              p.address 623 Harrison St., 2nd Floor, San Francisco, CA 94107
+              p
+                a.footer-link(href="tel:415-201-6370") 415-201-6370
+                br
+                a.footer-link(href="mailto:hello@website.com") info@website.com
+          nav.nav-col
+            p.footer-heading Account
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Create account
+              li
+                a.footer-link(href="#") Sign in
+              li
+                a.footer-link(href="#") iOS app
+              li
+                a.footer-link(href="#") Android app
+          nav.nav-col
+            p.footer-heading Company
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Finman
+              li
+                a.footer-link(href="#") For Business
+              li
+                a.footer-link(href="#") Service
+              li
+                a.footer-link(href="#") Financial Sustainability
+          nav.nav-col
+            p.footer-heading Resources
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Recipe directory
+              li
+                a.footer-link(href="#") Help center
+              li
+                a.footer-link(href="#") Privacy & terms
+
+    script
+      function logout() {
+          window.location.href = '/logout';
+      }
+
+      // Select all headers with the 'toggle-header' class
+      document.querySelectorAll('.toggle-header').forEach(function(header) {
+          header.addEventListener('click', function() {
+              const content = this.nextElementSibling;
+              if (content.style.display === 'none' || content.style.display === '') {
+                  content.style.display = 'block';
+              } else {
+                  content.style.display = 'none';
+              }
+          });
+      });
+
+      // For FAQ double toggle
+      const faqHeader = document.querySelector('.toggle-faq-header');
+      const faqSection = document.querySelector('.faq-section');
+      const faqQuestions = document.querySelectorAll('.toggle-question');
+
+      // Toggle FAQ questions
+      faqHeader.addEventListener('click', function() {
+          if (faqSection.style.display === 'none' || faqSection.style.display === '') {
+              faqSection.style.display = 'block';
+          } else {
+              faqSection.style.display = 'none';
+          }
+      });
+
+      // Show answers on question click
+      faqQuestions.forEach(function(question) {
+          question.addEventListener('click', function() {
+              const answer = this.nextElementSibling;
+              if (answer.style.display === 'none' || answer.style.display === '') {
+                  answer.style.display = 'block';
+              } else {
+                  answer.style.display = 'none';
+              }
+          });
+      });

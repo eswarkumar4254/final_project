@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="assests/css/style.css")
+  
+  body
+    #header
+    
+    section#login-sec
+      h1 Login
+      form#loginForm(action="/login" method="post")
+        label(for="email") Email:
+        input(type="email" id="email" name="email" placeholder="email")
+        
+        label(for="password") Password:
+        input(type="password" id="password" name="password" placeholder="password")
+        
+        button(type="submit") Login
+        
+      #relocate
+        p Don't have an account? 
+          a(href="signup") Register here
+
+    #footer
+    
+    script(src="assests/js/Script.js")

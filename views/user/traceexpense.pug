@@ -1,0 +1,210 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet", href="./assests/css/style_1.css")
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+
+  body
+    #header
+      header
+        .logo
+          img(src="/assests/img/paging/Finman-Logo-1.png", alt="logo", width="100px", height="50px")
+        nav
+          a.button(href="/user") Home
+          a.button(href="/traceexpense") Trace Expense
+          a.button(href="/userdashboard") DashBoard
+          a.menu.button(id="menu", href="/login") Logout
+
+    .container
+      h1 Budget Planning System
+
+      // Image Slider
+      .slider
+        .slides.active
+          img(src="https://i2.wp.com/clubthrifty.com/wp-content/uploads/2015/10/Budgeting-For-People-Who-Hate-Budgets_Featured-Image.jpg", alt="Budget Plan 1")
+        .slides
+          img(src="https://images.squarespace-cdn.com/content/v1/5951cc071b10e3977f15d46a/0df0f57a-5675-4ed8-82e1-0211241e1404/planning-for-a-budgeting-cycle-in-a-down-economy.jpg", alt="Budget Plan 2")
+        .slides
+          img(src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVkZ2V0fGVufDB8fDB8fHww", alt="Budget Plan 3")
+
+      // Content Section
+      .content
+        i.fas.fa-chart-line.icon-left
+        .text-content
+          h2 Choose the Perfect Budget Plan
+          p Our budget planning system provides three distinct options for managing your finances: the Best Savings Plan, the Least Savings Plan, and the Exact Savings Plan. Customize your budget based on your income and expenses and track your spending effortlessly with our interactive tools and visualizations.
+        i.fas.fa-piggy-bank.icon-right
+
+      // Generate Plan Link - Moved Up
+      .generate-plan-link
+        a(href="#generate-plan") Generate Plan
+
+      // Generate Plan Section
+      #generate-plan.generate-plan-section
+        h2 Generate Your Budget Plan
+        p Here you can input your income and expenses to generate a customized budget plan.
+
+        .input-section
+          label(for="income") Enter your Monthly Income:
+          input(type="number", id="income", placeholder="Enter your income")
+          button(onclick="generateBudget()") Generate Budget
+
+        // Display three budget plans side by side
+        .plans-container
+          .plan#least-savings-plan
+            h2 Least Savings
+            .budget-plan
+          .plan#default-savings-plan
+            h2 Default Savings
+            .budget-plan
+          .plan#best-savings-plan
+            h2 Best Savings
+            .budget-plan
+
+        // After expense comparison
+        #additional-savings
+          p Would you like to add more savings for any category?
+          button(onclick="askCategory()") Yes
+          button(onclick="skipCategory()") No
+
+        // Dropdown for category selection
+        #category-selection(style="display:none")
+          label(for="category") Select a category to add more savings:
+          select#category(onchange="showAmountInput()")
+            option(value="", disabled, selected) Select a category
+            option(value="housing") Housing
+            option(value="food") Food
+            option(value="utilities") Utilities
+            option(value="savings") Savings
+            option(value="medical") Medical
+            option(value="transportation") Transportation
+            option(value="entertainment") Entertainment
+            option(value="education") Education
+            option(value="health") Health
+            option(value="clothing") Clothing
+
+          // Input field for entering the amount
+          #amount-input(style="display:none; margin-top: 20px")
+            label(for="amount") Enter the amount you want to save:
+            input(type="number", id="amount", placeholder="Enter amount", min="0")
+
+          button#update-button(onclick="updatePlans()", style="display:none; margin-top: 20px") Update Plans
+
+        // Section to input actual expenses
+        .expenses-section
+          h2 Enter Your Actual Expenses
+          .expense-item
+            label(for="housing-expense") Housing:
+            input(type="number", id="housing-expense", placeholder="Enter housing expenses")
+            select#housing-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="food-expense") Food:
+            input(type="number", id="food-expense", placeholder="Enter food expenses")
+            select#food-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="utilities-expense") Utilities:
+            input(type="number", id="utilities-expense", placeholder="Enter utility expenses")
+            select#utilities-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="transportation-expense") Transportation:
+            input(type="number", id="transportation-expense", placeholder="Enter transportation expenses")
+            select#transportation-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="entertainment-expense") Entertainment:
+            input(type="number", id="entertainment-expense", placeholder="Enter entertainment expenses")
+            select#entertainment-timeframe
+              option(value="", disabled, selected) Select a timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="education-expense") Education:
+            input(type="number", id="education-expense", placeholder="Enter education expenses")
+            select#education-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="health-expense") Health:
+            input(type="number", id="health-expense", placeholder="Enter health expenses")
+            select#health-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="clothing-expense") Clothing:
+            input(type="number", id="clothing-expense", placeholder="Enter clothing expenses")
+            select#clothing-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          .expense-item
+            label(for="savings-expense") Savings:
+            input(type="number", id="savings-expense", placeholder="Enter savings amount")
+            select#savings-timeframe
+              option(value="monthly") Monthly
+              option(value="yearly") Yearly
+              option(value="weekly") Weekly
+          button(onclick="calculateExpenses()") Compare Expenses
+
+          // Section to display the comparison results
+          #expenses-result
+          #chartContainer
+            canvas#budgetChart(style="margin-top: 20px; width: 180px; height: 150px;")
+
+    #footer
+      footer.footer
+        .container.grid.grid--footer
+          .logo-col
+            a.footer-logo(href="#")
+              img.logo(src="./assests/img/paging/Finman-Logo-1.png", alt="logo")
+            ul.social-links
+              li
+                a(style="text-decoration: none", href="#")
+                  i.bx.bxl-facebook
+              li
+                a(style="text-decoration: none", href="#")
+                  i.bx.bxl-linkedin
+              li
+                a(style="text-decoration: none", href="#")
+                  i.bx.bxl-twitter
+              li
+                a(style="text-decoration: none", href="#")
+                  i.bx.bxl-instagram
+            p.copy-right Copyright &copy; <span.class="year">2027</span> by Omnifood, Inc. All rights reserved.
+          .address-col
+            p.footer-heading Contact us
+            address.contacts
+              p.address 623 Harrison St., 2nd Floor, San Francisco, CA 94107
+              p
+                a.footer-link(href="tel:415-201-6370") 415-201-6370
+                br
+                a.footer-link(href="mailto:hello@website.com") info@website.com
+          nav.nav-col
+            p.footer-heading Account
+            ul.footer-nav
+              li
+                a.footer-link(href="#") Create account
+              li
+                a.footer-link(href="#") Sign in
+              li
+                a.footer-link(href="#") iOS app
+              li
+                a.footer-link(href="#") Android app
+          nav.nav-col
+            p.footer-heading Company

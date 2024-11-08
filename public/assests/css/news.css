@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    background: linear-gradient(to bottom, #d1cccc, #67d9cf);
+    --card-bg-color: #ffffff;
+    --card-hover-bg: #f1f7ff;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+    padding-top: 80px; /* Matches navbar height */
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 15px;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #f3faff;
+    box-shadow: 0 0 4px #bbd0e2;
+}
+
+.main-nav {
+    justify-content: space-between;
+    padding-block: 10px;
+}
+
+.company-logo img {
+    width: 120px;
+}
+
+.nav-links ul {
+    gap: 16px;
+}
+
+.nav-item {
+    font-weight: 500;
+    padding-inline: 8px;
+}
+
+.hover-link {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hover-link:hover {
+    color: var(--secondary-text-color);
+}
+
+.hover-link:active {
+    color: red;
+}
+
+.nav-item.active {
+    color: var(--accent-color);
+}
+
+.search-bar {
+    height: 36px;
+    gap: 10px;
+}
+
+.news-input {
+    width: 220px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    border: 2px solid #bbd0e2;
+    font-family: "Roboto", sans-serif;
+    transition: all 0.3s ease;
+}
+
+.news-input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.search-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+main {
+    padding-block: 40px;
+}
+
+/* Card Layout */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+    align-items: start;
+}
+
+.card {
+    width: calc(33.33% - 20px);
+    min-height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--card-bg-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: var(--card-hover-bg);
+    transform: translateY(-4px);
+}
+
+.card-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.news-source {
+    margin-block: 12px;
+}
+
+/* Login and Registration Page Styles */
+    .auth-container {
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('./raviidp.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.auth-card {
+    background-color: var(--card-bg-color);
+    padding: 40px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-card h2 {
+    font-size: 1.8rem;
+    color: var(--primary-text-color);
+    margin-bottom: 20px;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+    font-family: "Roboto", sans-serif;
+}
+
+.auth-card input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.auth-card button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.auth-card button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.auth-card p {
+    color: var(--secondary-text-color);
+    margin-top: 20px;
+}
+
+.auth-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+
+    .news-input {
+        width: 200px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-inline: 10px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 12px;
+        padding-block: 12px;
+    }
+
+    .card {
+        width: calc(50% - 15px);
+    }
+
+    .news-input {
+        width: 180px;
+    }
+
+    main {
+        padding-block: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .news-input {
+        width: 150px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    main {
+        padding-block: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+        min-height: 350px;
+    }
+
+    .card-header img {
+        height: 180px;
+    }
+
+    nav .main-nav {
+        padding-block: 15px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

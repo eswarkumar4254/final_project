@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="assests/css/style.css")
+
+  body
+    #header
+
+    section#login-sec
+      h1 Contact Us
+      form#loginForm(action="/contact" method="post")
+        label(for="name") Name:
+        input#name(type="text" name="name" placeholder="name")
+        
+        label(for="email") Email:
+        input#email(type="email" name="email" placeholder="email")
+        
+        label(for="msg") Share with Us:
+        textarea#msg(name="msg" rows="5" placeholder="message" required)
+        
+        button(type="submit") Send
+
+    #footer
+
+    script(src="./assests/js/Script.js")
